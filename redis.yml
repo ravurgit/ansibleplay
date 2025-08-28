@@ -1,0 +1,24 @@
+---
+- name: Install Redis on Linux
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install Redis (RHEL / CentOS / Fedora)
+      yum:
+        name: redis
+        state: present
+      when: ansible_os_family == "RedHat"
+
+    - name: Install Redis (Debian / Ubuntu)
+      apt:
+        name: redis-server
+        state: present
+        update_cache: yes
+      when: ansible_os_family == "Debian"
+
+    - name: Enable and start Redis
+      service:
+        name: redis
+        state: started
+        enabled: yes
+
