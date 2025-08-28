@@ -1,0 +1,6 @@
+# site.yml (at repo root)
+- hosts: all
+  tasks:
+    - debug:
+        msg: "Hello from AWX"
+
