@@ -1,0 +1,5 @@
+echo "- hosts: all
+  tasks:
+    - name: Test ping
+      ping:" > test.yml
+
